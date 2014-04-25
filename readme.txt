@@ -1,14 +1,17 @@
-=== category_featured_images ===
+=== Category Featured Images ===
 Contributors: blocknot.es
 Tags: images,categories
 Donate link: http://www.blocknot.es/home/me/
-Requires at least: 3.0.0
-Tested up to: 3.9.0
+Requires at least: 3.0
+Tested up to: 3.9
 Stable tag: trunk
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
 It allows to set featured images for categories.
+
+== Description ==
+This plugin allows to set featured images for categories in edit category page.
 Posts without a featured image will show the category\'s image.
 
 == Installation ==
