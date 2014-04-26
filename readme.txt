@@ -8,15 +8,15 @@ Stable tag: trunk
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
 
-Set a featured image for categories.
+Set a featured image for all the posts of a category.
 
 == Description ==
 
 This plugin allows to set a featured image for each category.
-Posts without a featured image will show the category's image as featured image.
+Posts without a featured image set will show the category's featured image instead.
 
-NOTICE: Featured images usually are placed by the theme in the single post page, in the latest posts page, etc.
-If you want to set images for categories and place them using a shortcode there are other plugins that do it like: featured images for categories
+NOTICE: featured images usually are placed by the theme in the single post page, in the latest posts page, etc.
+If you want to place categories images using a shortcode or PHP code you have to use other plugins like: "featured images for categories"
 
 == Installation ==
 
