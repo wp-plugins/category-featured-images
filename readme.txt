@@ -15,13 +15,14 @@ Set a featured image for all the posts of a category.
 This plugin allows to set a featured image for each category.
 Posts without a featured image set will show the category's featured image instead.
 Featured images usually are placed by the theme in the single post page, in the latest posts page, etc.
-But can also be shown using the shortcode [cfi_featured_image] or the PHP function cfi_featured_image()
+But can also be shown using the shortcode *[cfi_featured_image]* or the PHP function *cfi_featured_image()*
 
 Shortcode/PHP function optional arguments:
-- 'size': 'thumbnail', 'medium', 'large', 'full'
-- 'class': class of the image tag
-- 'alt': alternative text of the image tag
-- 'title': title of the image tag
+
+* 'size': 'thumbnail', 'medium', 'large', 'full'
+* 'class': class of the image tag
+* 'alt': alternative text of the image tag
+* 'title': title of the image tag
 
 Shortcode example: [cfi_featured_image size="large" title="This is a test..." class="my-image" alt="My image"]
 
@@ -37,7 +38,13 @@ Function example: cfi_featured_image( array( 'size' => 'large', 'title' => 'This
 == Screenshots ==
 1. Edit category page
 
-== Changelog ==
+== Upgrade Notice ==
 
 = 1.0.6 =
 * Added PHP function and shortcode: cfi_featured_image
+
+== Changelog ==
+
+= 1.0.6 =
+* New shortcode: cfi_featured_image
+* New PHP function: cfi_featured_image()
