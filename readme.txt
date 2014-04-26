@@ -14,7 +14,9 @@ Set a featured image for categories.
 
 This plugin allows to set a featured image for each category.
 Posts without a featured image will show the category's image as featured image.
-Featured Images usually are placed by the theme in the single post page, in the latest posts page, etc.
+
+NOTICE: Featured images usually are placed by the theme in the single post page, in the latest posts page, etc.
+If you want to set images for categories and place them using a shortcode there are other plugins that do it like: featured images for categories
 
 == Installation ==
 
