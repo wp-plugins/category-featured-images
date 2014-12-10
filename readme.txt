@@ -24,11 +24,17 @@ Shortcode/PHP function optional arguments:
 * 'alt': alternative text of the image tag
 * 'title': title of the image tag
 
-Shortcode example: [cfi_featured_image size="large" title="This is a test..." class="my-image" alt="My image"]
+Shortcode example:
 
-Function example 1: cfi_featured_image( array( 'size' => 'large', 'title' => 'This is a test...', 'class' => 'my-image', 'alt' => 'My image' ) );
+	[cfi_featured_image size="large" title="This is a test..." class="my-image" alt="My image"]
 
-Function example 2: cfi_featured_image_url( array( 'size' => 'large' ) );
+Function example 1:
+
+	cfi_featured_image( array( 'size' => 'large', 'title' => 'This is a test...', 'class' => 'my-image', 'alt' => 'My image' ) );
+
+Function example 2:
+
+	cfi_featured_image_url( array( 'size' => 'large' ) );
 
 cfi_featured_image_url extra argument:
 
