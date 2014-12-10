@@ -15,7 +15,7 @@ Set a featured image for all the posts of a category.
 This plugin allows to set a featured image for each category.
 Posts without a featured image set will show the category's featured image instead.
 Featured images usually are placed by the theme in the single post page, in the latest posts page, etc.
-But can also be shown using the shortcode *[cfi_featured_image]* or the PHP function *cfi_featured_image()*
+But can also be shown using the shortcode *[cfi_featured_image]* or the PHP function *cfi_featured_image()*. To get the featured image URL I added the function *cfi_featured_image_url()*.
 
 Shortcode/PHP function optional arguments:
 
@@ -24,11 +24,21 @@ Shortcode/PHP function optional arguments:
 * 'alt': alternative text of the image tag
 * 'title': title of the image tag
 
-Shortcode example: [cfi_featured_image size="large" title="This is a test..." class="my-image" alt="My image"]
+Shortcode example:
 
-Function example 1: cfi_featured_image( array( 'size' => 'large', 'title' => 'This is a test...', 'class' => 'my-image', 'alt' => 'My image' ) );
+	[cfi_featured_image size="large" title="This is a test..." class="my-image" alt="My image"]
 
-Function example 2: cfi_featured_image_url( array( 'size' => 'large' ) );
+Function example 1:
+
+	cfi_featured_image( array( 'size' => 'large', 'title' => 'This is a test...', 'class' => 'my-image', 'alt' => 'My image' ) );
+
+Function example 2:
+
+	cfi_featured_image_url( array( 'size' => 'large' ) );
+
+cfi_featured_image_url extra argument:
+
+* 'cat_id': get the image URL of a specific category id
 
 == Installation ==
 
@@ -42,6 +52,8 @@ Function example 2: cfi_featured_image_url( array( 'size' => 'large' ) );
 
 == Upgrade Notice ==
 
+= 1.1.2 =
+* Added 'cat_id' param to cfi_featured_image_url
 = 1.1.0 =
 * Improved cfi_featured_image in category archive pages
 * Added PHP function: cfi_featured_image_url
@@ -50,6 +62,8 @@ Function example 2: cfi_featured_image_url( array( 'size' => 'large' ) );
 
 == Changelog ==
 
+= 1.1.2 =
+* Added 'cat_id' param to cfi_featured_image_url
 = 1.1.0 =
 * Improvement: cfi_featured_image in category archive pages shows the current image
 * New PHP function: cfi_featured_image_url()
