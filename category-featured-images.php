@@ -3,7 +3,7 @@
  * Plugin Name: Category Featured Images
  * Plugin URI: https://github.com/blocknotes/wordpress_category_featured_images
  * Description: Allows to set featured images for categories, posts without a featured image will show the category's image (Posts \ Categories \ Edit category)
- * Version: 1.1.2
+ * Version: 1.1.5
  * Author: Mattia Roccoberton
  * Author URI: http://blocknot.es
  * License: GPL3
@@ -57,11 +57,22 @@ class category_featured_images
 			if( $categories )
 			{
 				$images = get_option( 'cfi_featured_images' );
+				$cat = NULL;
 				foreach( $categories as $category )
 				{
 					if( isset( $images[$category->term_id] ) )
 					{
 						$attachment = wp_get_attachment_image_src( $images[$category->term_id], $size );
+						if( $attachment !== FALSE ) return $attachment[0];
+					}
+					if( $cat === NULL ) $cat = $category;
+				}
+				if( $cat !== NULL ) 
+				{
+					$parent = intval( $cat->parent );
+					if( $parent > 0 && isset( $images[$parent] ) )
+					{
+						$attachment = wp_get_attachment_image_src( $images[$parent], $size );
 						if( $attachment !== FALSE ) return $attachment[0];
 					}
 				}
@@ -89,9 +100,16 @@ class category_featured_images
 			if( $categories )
 			{
 				$images = get_option( 'cfi_featured_images' );
+				$cat = NULL;
 				foreach( $categories as $category )
 				{
 					if( isset( $images[$category->term_id] ) ) return '<span class="cfi-featured-image">' . wp_get_attachment_image( $images[$category->term_id], $size ) . '</span>';
+					if( $cat === NULL ) $cat = $category;
+				}
+				if( $cat !== NULL ) 
+				{
+					$parent = intval( $cat->parent );
+					if( $parent > 0 && isset( $images[$parent] ) ) return '<span class="cfi-featured-image">' . wp_get_attachment_image( $images[$parent], $size ) . '</span>';
 				}
 			}
 		}
@@ -175,11 +193,23 @@ class category_featured_images
 		{
 		// Look for a category featured image
 			$categories = wp_get_post_categories( $object_id );
-			if( isset( $categories[0] ) )
+			$images = get_option( 'cfi_featured_images' );
+			$cat = NULL;
+			foreach( $categories as $category )
 			{
-				$images = get_option( 'cfi_featured_images' );
-				if( $images !== FALSE && isset( $images[$categories[0]] ) ) return $images[$categories[0]];
+				if( isset( $images[$category] ) ) return $images[$category];
+				if( $cat === NULL ) $cat = $category;
 			}
+			if( $cat !== NULL )
+			{	// Look for the parent category image
+				$category = get_category( $cat );
+				if( !empty( $category ) && isset( $category->parent ) )
+				{
+					$parent = intval( $category->parent );
+					if( $parent > 0 && isset( $images[$parent] ) ) return $images[$parent];
+				}
+			}
+
 			return '';
 		}
 		else return array();

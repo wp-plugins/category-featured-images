@@ -3,7 +3,7 @@ Contributors: blocknot.es
 Tags: images,categories,posts,Post
 Donate link: http://www.blocknot.es/home/me/
 Requires at least: 3.5.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: trunk
 License: GPL3
 License URI: http://www.gnu.org/licenses/gpl-3.0.txt
@@ -40,6 +40,11 @@ cfi_featured_image_url extra argument:
 
 * 'cat_id': get the image URL of a specific category id
 
+Notes:
+
+* If a post has more than a category with a featured image the first available is loaded
+* If a category hasn't a featured image but it has a parent category with a featured image the parent one is loaded
+
 == Installation ==
 
 1. Install and activate the plugin
@@ -52,6 +57,8 @@ cfi_featured_image_url extra argument:
 
 == Upgrade Notice ==
 
+= 1.1.5 =
+* Loads parent category image if nothing is found before
 = 1.1.2 =
 * Added 'cat_id' param to cfi_featured_image_url
 = 1.1.0 =
@@ -62,6 +69,8 @@ cfi_featured_image_url extra argument:
 
 == Changelog ==
 
+= 1.1.5 =
+* Loads parent category image if nothing is found before
 = 1.1.2 =
 * Added 'cat_id' param to cfi_featured_image_url
 = 1.1.0 =
