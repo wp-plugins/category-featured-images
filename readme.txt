@@ -23,6 +23,7 @@ Shortcode/PHP function optional arguments:
 * 'class': class of the image tag
 * 'alt': alternative text of the image tag
 * 'title': title of the image tag
+* 'cat_id': select a specific category id
 
 Shortcode example:
 
@@ -35,10 +36,6 @@ Function example 1:
 Function example 2:
 
 	cfi_featured_image_url( array( 'size' => 'large' ) );
-
-cfi_featured_image_url extra argument:
-
-* 'cat_id': get the image URL of a specific category id
 
 Notes:
 
@@ -57,6 +54,8 @@ Notes:
 
 == Upgrade Notice ==
 
+= 1.1.8 =
+* Added 'cat_id' param to cfi_featured_image
 = 1.1.5 =
 * Loads parent category image if nothing is found before
 = 1.1.2 =
@@ -69,6 +68,8 @@ Notes:
 
 == Changelog ==
 
+= 1.1.8 =
+* Added 'cat_id' param to cfi_featured_image
 = 1.1.5 =
 * Loads parent category image if nothing is found before
 = 1.1.2 =

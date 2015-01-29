@@ -3,7 +3,7 @@
  * Plugin Name: Category Featured Images
  * Plugin URI: https://github.com/blocknotes/wordpress_category_featured_images
  * Description: Allows to set featured images for categories, posts without a featured image will show the category's image (Posts \ Categories \ Edit category)
- * Version: 1.1.5
+ * Version: 1.1.8
  * Author: Mattia Roccoberton
  * Author URI: http://blocknot.es
  * License: GPL3
@@ -89,7 +89,17 @@ class category_featured_images
 			unset( $args['size'] );
 		}
 		else $size = 'thumbnail';
-		if( is_single() )
+		if( isset( $args['cat_id'] ) )
+		{
+			$cat_id = intval( $args['cat_id'] );
+			$images = get_option( 'cfi_featured_images' );
+			if( isset( $images[$cat_id] ) )
+			{
+				$img = wp_get_attachment_image( $images[$cat_id], $size );
+				if( !empty( $img ) ) return '<span class="cfi-featured-image">' . wp_get_attachment_image( $images[$cat_id], $size ) . '</span>';
+			}
+		}
+		else if( is_single() )
 		{
 			$image = get_the_post_thumbnail( null, $size, $args );
 			if( !empty( $image ) ) return '<span class="cfi-featured-image">' . $image . '</span>';
